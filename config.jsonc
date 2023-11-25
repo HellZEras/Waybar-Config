@@ -103,7 +103,7 @@
       ]
     },
     "pulseaudio": {
-      "format": "Volume:{volume}%",
+      "format": "Vol:{volume}%",
       "tooltip": false,
       "format-muted": " Muted",
       "on-click": "pamixer -t",
@@ -152,6 +152,6 @@
         // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
         // "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C ",
-        "format": "GPU: {temperatureC}°C "
+        "format": "GPU:{temperatureC}°C"
     }
   }
