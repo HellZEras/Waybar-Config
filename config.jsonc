@@ -13,7 +13,6 @@
     "pulseaudio",
     "pulseaudio#microphone",
     "custom/separator",
-    "network",
     "bluetooth",
     "custom/recorder",
     "idle_inhibitor",
@@ -30,7 +29,7 @@
   },
   "custom/spotify": {
     "format": "{}",
-    "exec": "python ~/.config/waybar/scripts/spotify.py",
+    "exec": "python ~/.config/hypr/waybar/spotify.py",
     "return-type" :"json",
     "restart-interval" : 0,
     "on-click": "playerctl -p spotify play-pause",
@@ -78,9 +77,9 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "<span color=\"#ffffff\">{icon}</span>  {capacity}%",
-    "format-charging": "<span color=\"#ffffff\"></span> {capacity}%",
-    "format-plugged": "<span color=\"#ffffff\"></span> {capacity}%",
+    "format": "<span color=\"#ffffff\">{icon}</span>  {capacity}% ",
+    "format-charging": "<span color=\"#ffffff\"></span> {capacity}% ",
+    "format-plugged": "<span color=\"#ffffff\"></span> {capacity}% ",
     "format-icons": ["", "", "", "", ""]
   },
   "bluetooth": {
