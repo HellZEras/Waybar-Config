@@ -2,20 +2,20 @@
   "layer": "top",
   "position": "top",
   "height": 35,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
     "tray",
-    "memory",
+    "custom/separator",
+    "cpu",
     "custom/separator",
     "custom/spotify",
     "custom/separator",
     "pulseaudio",
     "pulseaudio#microphone",
     "custom/separator",
-    "bluetooth",
-    "custom/recorder",
-    "idle_inhibitor",
+    "custom/connection",
+    "network",
     "custom/separator",
     "battery"
     // "custom/exit"
@@ -24,44 +24,58 @@
   "custom/separator": {
     "format": "|"
   },
-  "hyprland/window": {
-    "max-length": 30
+  "custom/connection": {
+    "format": "{}",
+    "max-length":20,
+    "exec": "python ~/.config/waybar/connection.py",
+    "return-type" :"json",
+    "restart-interval" : 7,
+    "on-click": "wifi toggle",
   },
   "custom/spotify": {
     "format": "{}",
-    "exec": "python ~/.config/hypr/waybar/spotify.py",
+    "max-length":20,
+    "tooltip": true,
+    "tooltip-format": "{}",
+    "exec": "python ~/.config/waybar/spotify.py",
     "return-type" :"json",
-    "restart-interval" : 0,
+    "restart-interval" : 1,
     "on-click": "playerctl -p spotify play-pause",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous"
   },
-  "custom/exit": {
-    "format": "⏻ ",
-    "on-click": "~/scripts/hypr/wlogout.sh"
-  },
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "on-click": "activate",  
     "format": "{icon}",
+    "persistent-workspaces": {
+        "1": [], // Workspace 1 will always show on all outputs
+        "2": [], // Workspace 2 will always show on all outputs
+        "3": [], // Workspace 3 will always show on all outputs
+        "4": [], // Workspace 4 will always show on 'eDP-1' if it doesn't exist
+        "5": [], // Workspace 5 will always show on both 'eDP-1' and 'DP-2'
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": []
+    },
     "format-icons": {
-        // "1": "󰲠",
-        // "2": "󰲢",
-        // "3": "󰲤",
-        // "4": "󰲦",
-        // "5": "󰲨",
-        // "6": "󰲪",
-        // "7": "󰲬",
-        // "8": "󰲮",
-        // "9": "󰲰",
-        // "10": "󰿬",
+         "1": "Ⅰ",
+         "2": "Ⅱ",
+         "3": "Ⅲ",
+         "4": "Ⅳ",
+         "5": "Ⅴ",
+         "6": "Ⅵ",
+         "7": "Ⅶ",
+         "8": "Ⅷ",
+         "9": "Ⅸ",
+         "10": "Ⅹ",
 
-        "active": "",
-        "default": "",
-        "empty": ""
+        //"active": "",
+        //"default": "",
+        //"empty": ""
     },
-    "persistent_workspaces": {
-        "*": 10,  
-    },
+
 },
   "idle_inhibitor": {
     "format": "<span color=\"#ffffff\">{icon}</span>",
@@ -83,10 +97,11 @@
     "format-icons": ["", "", "", "", ""]
   },
   "bluetooth": {
+    "on-click": "bluetooth toggle",
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": " ",
     // "format-disabled": "", // an empty format will hide the module
-    "format-connected": "󰂴 ",
+    "format-connected": "󰂴 {device_alias} ",
     "format-disabled": "󰂲 ",
     "tooltip-format": "{controller_alias}",
     "tooltip-format-connected": "{device_enumerate}",
@@ -103,8 +118,10 @@
     "on-scroll-up": "light -A 1%+",
     "on-scroll-down": "light -U 1%-"
   },
-  "memory": {
-    "format": "<span color=\"#ffffff\"></span> {}%"
+  "cpu": {
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
   },
   "clock": {
     "interval": 1,
@@ -134,14 +151,13 @@
     }
   },
   "network": {
-    // "format-wifi": " {essid}",
-    "format-wifi": "<span color=\"#ffffff\">󰖩</span> ",
+    "format": " ↑↓ {bandwidthTotalBytes}",
+    //"format-wifi": "  {essid}  <span color=\"#ffffff\">󰖩</span> ",
     "format-ethernet": "󰈀 ",
+    "interval": 5,
     "format-disconnected": "<span color=\"#F44747\">{icon}</span>󰖪 ",
     "tooltip-format-wifi": "{essid}",
     // "on-click": "wofi-wifi-menu",
-    "on-click": "exec ~/scripts/waybar/nmtui-wrapper.sh",
-    // "on-click": "exec ~/scripts/rofi-wayland/wifi-menu.sh",
     "max-length": 20
   },
   "pulseaudio": {
@@ -174,9 +190,8 @@
     "scroll-step": 5
   },
   "tray": {
-    "format": "<span rise=''>{}</span>",
-    "icon-size": 19,
-    "spacing": 5
+    "icon-size": 15,
+    "spacing": 3
   },
   "custom/recorder": {
     "format": " ",
