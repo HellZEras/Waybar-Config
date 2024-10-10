@@ -3,7 +3,7 @@
   border-radius: 0;
   min-height: 0;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -29,8 +29,14 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  color: #f0f0f0;
+  color: #44adc9;
   background: inherit;
+}
+
+#workspaces button.focused{
+  color: #44adc9;
+  background: inherit;
+  border-bottom: 2px solid white;
 }
 
 @keyframes blink {
@@ -50,19 +56,20 @@ tooltip label {
 
 /* General style for all modules */
 #clock,
-#spotify,
+#custom-spotify,
 #custom-waybar-mpris,
 #window,
 #network,
 #backlight,
 #bluetooth,
-#memory,
+#cpu,
 #idle_inhibitor,
 #pulseaudio,
 #pulseaudio.microphone,
+#custom-connection,
 #battery {
   color: #ffffff;
-  margin: 0 5px;
+  margin: 0 3px;
 }
 
 /* Specific module styles */
@@ -71,15 +78,16 @@ tooltip label {
 }
 
 #backlight {
-  margin-right: 15px;
+  margin-right: 0px;
 }
 
 #pulseaudio {
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 #battery {
-  margin-right: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 #idle_inhibitor {
@@ -89,20 +97,27 @@ tooltip label {
 #network,
 #bluetooth {
   margin-right: 2px;
+  margin-left: 0px;
 }
-
+#network{
+  color: lightgreen;
+}
+#network.disconnected{
+  color: red;
+}
 #tray {
-  margin-right: 10px;
-  padding-right: 10px;
+  margin-right: 0px;
+  padding-right: 0px;
   background-image: linear-gradient(#abb0ab);
-  background-size: 1px 50%;
+  background-size: 1px 0%;
   background-position: 95% 50%;
   background-repeat: no-repeat;
 }
 
 /* Separator style */
 #custom-separator {
-  margin: 0 11px;
+  margin-left:4px ;
+  margin-right: 4px;
   color: #abb0ab;
 }
 
@@ -116,18 +131,14 @@ tooltip label {
   margin-right: 6px;
   color: red;
 }
-
-/* Spotify */
-#spotify {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 15px;
-  font-weight: 500;
-  color: #ffffff;
-  margin-left: 10px;
-}
-
 /* Exit */
 #custom-exit {
   margin-left: 13px;
   color: white;
+}
+#custom-connection.connected{
+  color: lightgreen;
+}
+#custom-connection{
+  color: red;
 }
