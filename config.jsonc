@@ -2,21 +2,20 @@
   "layer": "top",
   "position": "top",
   "height": 35,
-  "modules-left": ["sway/workspaces"],
-  "modules-center": ["clock"],
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "tray",
-    "custom/separator",
     "cpu",
-    "custom/separator",
     "custom/spotify",
-    "custom/separator",
-    "pulseaudio",
-    "pulseaudio#microphone",
-    "custom/separator",
+    "custom/combined_audio",
     "custom/connection",
+    "bluetooth",
     "network",
-    "custom/separator",
     "battery"
     // "custom/exit"
   ],
@@ -24,59 +23,49 @@
   "custom/separator": {
     "format": "|"
   },
-  "custom/connection": {
-    "format": "{}",
-    "max-length":20,
-    "exec": "python ~/.config/waybar/connection.py",
-    "return-type" :"json",
-    "restart-interval" : 7,
-    "on-click": "wifi toggle",
-  },
   "custom/spotify": {
     "format": "{}",
-    "max-length":20,
+    "max-length": 40,
     "tooltip": true,
     "tooltip-format": "{}",
-    "exec": "python ~/.config/waybar/spotify.py",
-    "return-type" :"json",
-    "restart-interval" : 1,
+    "exec": "~/.config/waybar/bin/playerinfo",
+    "return-type": "string",
+    "restart-interval": 1,
     "on-click": "playerctl -p spotify play-pause",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous"
   },
-  "sway/workspaces": {
-    "on-click": "activate",  
+  "hyprland/workspaces": {
+    "on-click": "activate",
     "format": "{icon}",
     "persistent-workspaces": {
-        "1": [], // Workspace 1 will always show on all outputs
-        "2": [], // Workspace 2 will always show on all outputs
-        "3": [], // Workspace 3 will always show on all outputs
-        "4": [], // Workspace 4 will always show on 'eDP-1' if it doesn't exist
-        "5": [], // Workspace 5 will always show on both 'eDP-1' and 'DP-2'
-        "6": [],
-        "7": [],
-        "8": [],
-        "9": [],
-        "10": []
+      "1": [], // Workspace 1 will always show on all outputs
+      "2": [], // Workspace 2 will always show on all outputs
+      "3": [], // Workspace 3 will always show on all outputs
+      "4": [], // Workspace 4 will always show on 'eDP-1' if it doesn't exist
+      "5": [], // Workspace 5 will always show on both 'eDP-1' and 'DP-2'
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
     },
     "format-icons": {
-         "1": "Ⅰ",
-         "2": "Ⅱ",
-         "3": "Ⅲ",
-         "4": "Ⅳ",
-         "5": "Ⅴ",
-         "6": "Ⅵ",
-         "7": "Ⅶ",
-         "8": "Ⅷ",
-         "9": "Ⅸ",
-         "10": "Ⅹ",
-
-        //"active": "",
-        //"default": "",
-        //"empty": ""
+      "1": "Ⅰ",
+      "2": "Ⅱ",
+      "3": "Ⅲ",
+      "4": "Ⅳ",
+      "5": "Ⅴ",
+      "6": "Ⅵ",
+      "7": "Ⅶ",
+      "8": "Ⅷ",
+      "9": "Ⅸ",
+      "10": "Ⅹ",
+      //"active": "",
+      //"default": "",
+      //"empty": ""
     },
-
-},
+  },
   "idle_inhibitor": {
     "format": "<span color=\"#ffffff\">{icon}</span>",
     "format-icons": {
@@ -94,12 +83,18 @@
     "format": "<span color=\"#ffffff\">{icon}</span>  {capacity}% ",
     "format-charging": "<span color=\"#ffffff\"></span> {capacity}% ",
     "format-plugged": "<span color=\"#ffffff\"></span> {capacity}% ",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "bluetooth": {
     "on-click": "bluetooth toggle",
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-    "format": " ",
+    "format": "",
     // "format-disabled": "", // an empty format will hide the module
     "format-connected": "󰂴 {device_alias} ",
     "format-disabled": "󰂲 ",
@@ -112,16 +107,27 @@
     "device": "intel_backlight",
     "format": "<span color=\"#ffffff\">{icon}</span> {percent}%",
     // "format-icons": ["", "", ""],
-    "format-icons": ["󰖨"],
+    "format-icons": [
+      "󰖨"
+    ],
     "tooltip-format": "{percent}%",
     // "format-icons": ["󰃜", "󰃛", "󰃚"],
     "on-scroll-up": "light -A 1%+",
     "on-scroll-down": "light -U 1%-"
   },
   "cpu": {
-	"interval": 1,
-	"format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
   },
   "clock": {
     "interval": 1,
@@ -153,7 +159,7 @@
   "network": {
     "format": " ↑↓ {bandwidthTotalBytes}",
     //"format-wifi": "  {essid}  <span color=\"#ffffff\">󰖩</span> ",
-    "format-ethernet": "󰈀 ",
+    "format-ethernet": " ",
     "interval": 5,
     "format-disconnected": "<span color=\"#F44747\">{icon}</span>󰖪 ",
     "tooltip-format-wifi": "{essid}",
@@ -175,7 +181,12 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", "󰕾", ""]
+      "default": [
+        "",
+        "",
+        "󰕾",
+        ""
+      ]
     }
   },
   "pulseaudio#microphone": {
@@ -189,18 +200,16 @@
     "on-scroll-down": "pamixer --default-source -d 5",
     "scroll-step": 5
   },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 3
+  "custom/combined_audio": {
+    "format": "{}",
+    "exec": "~/.config/waybar/bin/combined_audio.sh",
+    "interval": 1,
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pamixer --increase 5",
+    "on-scroll-down": "pamixer --decrease 5"
   },
-  "custom/recorder": {
-    "format": " ",
-    "tooltip": false,
-    "return-type": "json",
-    // "interval": 1,
-    "interval": "once",
-    "exec": "echo '{\"class\": \"recording\"}'",
-    "signal": 8,
-    "exec-if": "pgrep wf-recorder || pgrep obs"
+  "tray": {
+    "icon-size": 20,
+    "spacing": 3
   }
 }
