@@ -4,11 +4,11 @@
   min-height: 0;
   font-family: "JetBrainsMono Nerd Font";
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 window#waybar {
-  background: rgba(8, 7, 7, 1.00);
+  background: #0f0f10;
 }
 
 tooltip {
@@ -33,8 +33,8 @@ tooltip label {
   background: inherit;
 }
 
-#workspaces button.focused{
-  color: #44adc9;
+#workspaces button.active {
+  color: #ba8e23;
   background: inherit;
   border-bottom: 2px solid white;
 }
@@ -72,7 +72,6 @@ tooltip label {
   margin: 0 3px;
 }
 
-/* Specific module styles */
 #custom-waybar-mpris {
   margin-left: 10px;
 }
@@ -82,31 +81,51 @@ tooltip label {
 }
 
 #pulseaudio {
-  margin-right: 5px;
+  padding: 0;
+  border-bottom: 2px solid #458588;
 }
 
 #battery {
-  margin-right: 0px;
-  margin-left: 0px;
+  padding: 10px;
+  border-bottom: 2px solid #8ec07c;
 }
 
 #idle_inhibitor {
   margin-left: 5px;
 }
 
-#network,
 #bluetooth {
-  margin-right: 2px;
-  margin-left: 0px;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 2px solid #3c3836;
 }
-#network{
-  color: lightgreen;
+
+#bluetooth.off {
+  border-bottom: 2px solid #cc241d;
+  padding: 10px;
+  margin: 0;
 }
-#network.disconnected{
-  color: red;
+
+#bluetooth.on {
+  padding: 10px;
+  border-bottom: 2px solid #8ec07c;
+  margin: 0;
 }
+
+#network {
+  color: #8ec07c;
+  border-bottom: 2px solid #8ec07c;
+  padding: 10px;
+  margin: 0;
+}
+
+#network.disconnected {
+  border-bottom: 2px solid #cc241d;
+  color: #cc241d;
+}
+
 #tray {
-  margin-right: 0px;
+  margin-right: 20px;
   padding-right: 0px;
   background-image: linear-gradient(#abb0ab);
   background-size: 1px 0%;
@@ -116,7 +135,7 @@ tooltip label {
 
 /* Separator style */
 #custom-separator {
-  margin-left:4px ;
+  margin-left: 4px;
   margin-right: 4px;
   color: #abb0ab;
 }
@@ -131,14 +150,38 @@ tooltip label {
   margin-right: 6px;
   color: red;
 }
+
 /* Exit */
 #custom-exit {
   margin-left: 13px;
   color: white;
 }
-#custom-connection.connected{
+
+#custom-connection.connected {
   color: lightgreen;
 }
-#custom-connection{
+
+#custom-connection {
   color: red;
+  margin: 0;
+
+}
+
+#custom-spotify {
+  border-bottom: 2px solid #ba8e23;
+  padding: 10px;
+  margin: 0;
+
+}
+
+#cpu {
+  border-bottom: 2px solid #cc241d;
+  padding: 10px;
+  margin: 0;
+}
+
+#custom-combined_audio {
+  border-bottom: 2px solid #458588;
+  padding: 10px;
+  margin: 0;
 }
