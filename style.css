@@ -8,7 +8,46 @@
 }
 
 window#waybar {
-  background: #0f0f10;
+  background: transparent;
+}
+
+#clock,
+#workspaces,
+#custom-combined_audio,
+#custom-spotify,
+#custom-waybar-mpris,
+#tray,
+#window,
+#network,
+#backlight,
+#bluetooth,
+#cpu,
+#idle_inhibitor,
+#pulseaudio,
+#pulseaudio.microphone,
+#custom-connection,
+#battery {
+  background-color: black;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #ffffff;
+  margin: 5px;
+  border: 2px solid #ba8e23;
+}
+
+#network {
+  color: #8ec07c;
+}
+
+#network.disconnected {
+  color: #cc241d;
+}
+
+#tray {
+  background-image: linear-gradient(#abb0ab);
+  background-size: 1px 0%;
+  background-position: 95% 50%;
+  background-repeat: no-repeat;
 }
 
 tooltip {
@@ -52,136 +91,4 @@ tooltip label {
   animation-timing-function: linear;
   animation-iteration-count: 4;
   animation-direction: alternate;
-}
-
-/* General style for all modules */
-#clock,
-#custom-spotify,
-#custom-waybar-mpris,
-#window,
-#network,
-#backlight,
-#bluetooth,
-#cpu,
-#idle_inhibitor,
-#pulseaudio,
-#pulseaudio.microphone,
-#custom-connection,
-#battery {
-  color: #ffffff;
-  margin: 0 3px;
-}
-
-#custom-waybar-mpris {
-  margin-left: 10px;
-}
-
-#backlight {
-  margin-right: 0px;
-}
-
-#pulseaudio {
-  padding: 0;
-  border-bottom: 2px solid #458588;
-}
-
-#battery {
-  padding: 10px;
-  border-bottom: 2px solid #8ec07c;
-}
-
-#idle_inhibitor {
-  margin-left: 5px;
-}
-
-#bluetooth {
-  margin: 0;
-  padding: 10px;
-  border-bottom: 2px solid #3c3836;
-}
-
-#bluetooth.off {
-  border-bottom: 2px solid #cc241d;
-  padding: 10px;
-  margin: 0;
-}
-
-#bluetooth.on {
-  padding: 10px;
-  border-bottom: 2px solid #8ec07c;
-  margin: 0;
-}
-
-#network {
-  color: #8ec07c;
-  border-bottom: 2px solid #8ec07c;
-  padding: 10px;
-  margin: 0;
-}
-
-#network.disconnected {
-  border-bottom: 2px solid #cc241d;
-  color: #cc241d;
-}
-
-#tray {
-  margin-right: 20px;
-  padding-right: 0px;
-  background-image: linear-gradient(#abb0ab);
-  background-size: 1px 0%;
-  background-position: 95% 50%;
-  background-repeat: no-repeat;
-}
-
-/* Separator style */
-#custom-separator {
-  margin-left: 4px;
-  margin-right: 4px;
-  color: #abb0ab;
-}
-
-/* Microphone */
-#pulseaudio.microphone {
-  margin-right: 5px;
-}
-
-/* Recorder */
-#custom-recorder {
-  margin-right: 6px;
-  color: red;
-}
-
-/* Exit */
-#custom-exit {
-  margin-left: 13px;
-  color: white;
-}
-
-#custom-connection.connected {
-  color: lightgreen;
-}
-
-#custom-connection {
-  color: red;
-  margin: 0;
-
-}
-
-#custom-spotify {
-  border-bottom: 2px solid #ba8e23;
-  padding: 10px;
-  margin: 0;
-
-}
-
-#cpu {
-  border-bottom: 2px solid #cc241d;
-  padding: 10px;
-  margin: 0;
-}
-
-#custom-combined_audio {
-  border-bottom: 2px solid #458588;
-  padding: 10px;
-  margin: 0;
 }
