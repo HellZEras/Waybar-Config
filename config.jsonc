@@ -3,19 +3,19 @@
   "position": "top",
   "height": 35,
   "modules-left": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/player_icon",
+    "custom/spotify",
   ],
   "modules-center": [
-    "clock"
+    "clock",
   ],
   "modules-right": [
     "tray",
     "cpu",
-    "custom/spotify",
     "custom/combined_audio",
-    "custom/connection",
-    "bluetooth",
     "network",
+    "bluetooth",
     "battery"
     // "custom/exit"
   ],
@@ -96,8 +96,8 @@
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": "",
     // "format-disabled": "", // an empty format will hide the module
-    "format-connected": "󰂴 {device_alias} ",
-    "format-disabled": "󰂲 ",
+    "format-connected": "󰂴 {device_alias}",
+    "format-disabled": "󰂲",
     "tooltip-format": "{controller_alias}",
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": " {device_alias} {device_battery_percentage}%"
@@ -158,7 +158,7 @@
   },
   "network": {
     "format": " ↑↓ {bandwidthTotalBytes}",
-    //"format-wifi": "  {essid}  <span color=\"#ffffff\">󰖩</span> ",
+    "format-wifi": "  {ipaddr}",
     "format-ethernet": " ",
     "interval": 5,
     "format-disconnected": "<span color=\"#F44747\">{icon}</span>󰖪 ",
@@ -211,5 +211,8 @@
   "tray": {
     "icon-size": 20,
     "spacing": 3
+  },
+  "custom/player_icon": {
+    "format": ""
   }
 }
