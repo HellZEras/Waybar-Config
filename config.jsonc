@@ -8,21 +8,23 @@
     "custom/spotify",
   ],
   "modules-center": [
+    "custom/agenda_icon",
     "clock",
   ],
   "modules-right": [
     "tray",
+    "custom/cpu_icon",
     "cpu",
-    "custom/combined_audio",
+    "custom/audio_icon",
+    "pulseaudio",
+    "custom/network_icon",
     "network",
+    "custom/bluetooth_icon",
     "bluetooth",
     "battery"
     // "custom/exit"
   ],
   // Modules
-  "custom/separator": {
-    "format": "|"
-  },
   "custom/spotify": {
     "format": "{}",
     "max-length": 40,
@@ -66,23 +68,15 @@
       //"empty": ""
     },
   },
-  "idle_inhibitor": {
-    "format": "<span color=\"#ffffff\">{icon}</span>",
-    "format-icons": {
-      "activated": " ",
-      "deactivated": " "
-    },
-    "timeout": 30.5
-  },
   "battery": {
     "states": {
       "good": 80,
       "warning": 30,
       "critical": 20
     },
-    "format": "<span color=\"#ffffff\">{icon}</span>  {capacity}% ",
-    "format-charging": "<span color=\"#ffffff\"></span> {capacity}% ",
-    "format-plugged": "<span color=\"#ffffff\"></span> {capacity}% ",
+    "format": "<span color=\"#ffffff\">{icon}</span>",
+    "format-charging": "<span color=\"#ffffff\"></span>",
+    "format-plugged": "<span color=\"#ffffff\"></span>",
     "format-icons": [
       "",
       "",
@@ -94,26 +88,13 @@
   "bluetooth": {
     "on-click": "bluetooth toggle",
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-    "format": "",
+    "format": "No device",
     // "format-disabled": "", // an empty format will hide the module
-    "format-connected": "󰂴 {device_alias}",
-    "format-disabled": "󰂲",
+    "format-connected": "{device_alias}",
+    "format-disabled": "Not Connected",
     "tooltip-format": "{controller_alias}",
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": " {device_alias} {device_battery_percentage}%"
-  },
-  "backlight": {
-    "on-click": "",
-    "device": "intel_backlight",
-    "format": "<span color=\"#ffffff\">{icon}</span> {percent}%",
-    // "format-icons": ["", "", ""],
-    "format-icons": [
-      "󰖨"
-    ],
-    "tooltip-format": "{percent}%",
-    // "format-icons": ["󰃜", "󰃛", "󰃚"],
-    "on-scroll-up": "light -A 1%+",
-    "on-scroll-down": "light -U 1%-"
   },
   "cpu": {
     "interval": 1,
@@ -157,22 +138,17 @@
     }
   },
   "network": {
-    "format": " ↑↓ {bandwidthTotalBytes}",
-    "format-wifi": "  {ipaddr}",
-    "format-ethernet": " ",
+    "format": "{ipaddr}",
     "interval": 5,
     "format-disconnected": "<span color=\"#F44747\">{icon}</span>󰖪 ",
     "tooltip-format-wifi": "{essid}",
-    // "on-click": "wofi-wifi-menu",
     "max-length": 20
   },
   "pulseaudio": {
-    "format": "<span color=\"#ffffff\">{icon}</span> {volume}%",
-    "format-muted": " ",
-    "format-bluetooth": "{icon}  {volume}%",
-    "format-bluetooth-muted": "  ",
+    "format": "{volume}%",
     "on-click": "pavucontrol",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pamixer --increase 5",
+    "on-scroll-down": "pamixer --decrease 5",
     "scroll-step": 1,
     "format-icons": {
       "headphone": "",
@@ -189,17 +165,6 @@
       ]
     }
   },
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "tooltip": true,
-    "format-source": "<span color=\"#ffffff\"></span> {volume}%",
-    "format-source-muted": " ",
-    "on-click-right": "pamixer --default-source -t",
-    "on-click": "pavucontrol -t 4",
-    "on-scroll-up": "pamixer --default-source -i 5",
-    "on-scroll-down": "pamixer --default-source -d 5",
-    "scroll-step": 5
-  },
   "custom/combined_audio": {
     "format": "{}",
     "exec": "~/.config/waybar/bin/combined_audio.sh",
@@ -208,11 +173,31 @@
     "on-scroll-up": "pamixer --increase 5",
     "on-scroll-down": "pamixer --decrease 5"
   },
+  "custom/batt_lvl": {
+    "format": "{}",
+    "exec": "~/.config/waybar/bin/battery.sh",
+    "interval": 1
+  },
   "tray": {
     "icon-size": 20,
     "spacing": 3
   },
   "custom/player_icon": {
-    "format": ""
+    "format": " "
+  },
+  "custom/agenda_icon": {
+    "format": " "
+  },
+  "custom/cpu_icon": {
+    "format": " "
+  },
+  "custom/audio_icon": {
+    "format": " "
+  },
+  "custom/network_icon": {
+    "format": " "
+  },
+  "custom/bluetooth_icon": {
+    "format": ""
   }
 }
