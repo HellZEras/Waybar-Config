@@ -5,11 +5,11 @@
   "modules-left": [
     "hyprland/workspaces",
     "custom/player_icon",
-    "custom/spotify",
+    "custom/spotify"
   ],
   "modules-center": [
     "custom/agenda_icon",
-    "clock",
+    "clock"
   ],
   "modules-right": [
     "tray",
@@ -22,9 +22,7 @@
     "custom/bluetooth_icon",
     "bluetooth",
     "battery"
-    // "custom/exit"
   ],
-  // Modules
   "custom/spotify": {
     "format": "{}",
     "max-length": 40,
@@ -41,11 +39,11 @@
     "on-click": "activate",
     "format": "{icon}",
     "persistent-workspaces": {
-      "1": [], // Workspace 1 will always show on all outputs
-      "2": [], // Workspace 2 will always show on all outputs
-      "3": [], // Workspace 3 will always show on all outputs
-      "4": [], // Workspace 4 will always show on 'eDP-1' if it doesn't exist
-      "5": [], // Workspace 5 will always show on both 'eDP-1' and 'DP-2'
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
       "6": [],
       "7": [],
       "8": [],
@@ -62,11 +60,8 @@
       "7": "Ⅶ",
       "8": "Ⅷ",
       "9": "Ⅸ",
-      "10": "Ⅹ",
-      //"active": "",
-      //"default": "",
-      //"empty": ""
-    },
+      "10": "Ⅹ"
+    }
   },
   "battery": {
     "states": {
@@ -87,9 +82,7 @@
   },
   "bluetooth": {
     "on-click": "bluetooth toggle",
-    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": "No device",
-    // "format-disabled": "", // an empty format will hide the module
     "format-connected": "{device_alias}",
     "format-disabled": "Not Connected",
     "tooltip-format": "{controller_alias}",
@@ -98,17 +91,7 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
+    "format": "{usage:>2}%"
   },
   "clock": {
     "interval": 1,
