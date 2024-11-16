@@ -15,19 +15,24 @@ window#waybar {
 #workspaces,
 #custom-combined_audio,
 #custom-spotify,
-#custom-waybar-mpris,
 #tray,
 #window,
 #network,
 #backlight,
 #bluetooth,
+#custom-player_icon,
+#custom-agenda_icon,
+#custom-cpu_icon,
+#custom-network_icon,
+#custom-audio_icon,
+#custom-bluetooth_icon,
 #cpu,
 #idle_inhibitor,
 #pulseaudio,
 #pulseaudio.microphone,
 #custom-connection,
 #battery {
-  background-color: black;
+  background-color: #3c3836;
   padding-right: 15px;
   padding-left: 15px;
   color: #ffffff;
@@ -91,4 +96,49 @@ tooltip label {
   animation-timing-function: linear;
   animation-iteration-count: 4;
   animation-direction: alternate;
+}
+
+#custom-player_icon,
+#custom-agenda_icon,
+#custom-cpu_icon,
+#custom-network_icon,
+#custom-audio_icon,
+#custom-bluetooth_icon {
+  background-color: black;
+  margin-right: 0;
+}
+
+#custom-player_icon {
+  color: #f79eac;
+}
+
+#custom-agenda_icon {
+  color: #836994;
+}
+
+#custom-cpu_icon {
+  color: #C48236;
+}
+
+#custom-audio_icon {
+  color: #eb6363;
+}
+
+#custom-network_icon {
+  color: #8ec07c;
+}
+
+#custom-bluetooth_icon {
+  color: #639190;
+}
+
+#custom-spotify,
+#clock,
+#cpu,
+#pulseaudio,
+#network,
+#bluetooth {
+  color: whitesmoke;
+  margin-left: 0;
+  border-left: 0;
 }
